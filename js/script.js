@@ -125,13 +125,23 @@ function createBoxes (array){
     });   
 }
 
+// ------- /Array
+
+function randomColor (){
+    return randomColor = Math.floor(Math.random()*16777215).toString(16);
+}
+
 function filteredArray (color){
     const filtered = iconArray.filter(el => el.team === `${color}`);
     return filtered;    
 }
 
+// ------- /Function
+
 const containerHTML = document.querySelector('.icon');
 const selectBtn = document.getElementById('filter-icon');
+
+// ------- /Select DOM Element
 
 createBoxes (iconArray);
 
@@ -139,7 +149,6 @@ selectBtn.addEventListener('change', (event) =>{
     containerHTML.innerHTML='';
     const filtered = iconArray.filter(el => el.color === `${event.target.value}`);
     createBoxes (filtered);
-  
     if (event.target.value==='all'){
         createBoxes (iconArray);
     }
